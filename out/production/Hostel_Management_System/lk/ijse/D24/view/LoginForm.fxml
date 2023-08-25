@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.paint.LinearGradient?>
+<?import javafx.scene.paint.Stop?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="650.0" prefWidth="1050.0" style="-fx-background-color: #f3e5f5;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24.controller.LoginFormController">
+   <children>
+      <ImageView blendMode="MULTIPLY" fitHeight="554.0" fitWidth="657.0" layoutX="-1.0" layoutY="96.0">
+         <image>
+            <Image url="@assests/10782561_19197690.jpg" />
+         </image>
+      </ImageView>
+      <ImageView blendMode="MULTIPLY" fitHeight="319.0" fitWidth="411.0" layoutY="-27.0">
+         <image>
+            <Image url="@assests/D.gif" />
+         </image>
+      </ImageView>
+      <AnchorPane layoutX="555.0" layoutY="83.0" opacity="0.91" prefHeight="484.0" prefWidth="429.0" style="-fx-background-color: #ba68c8; -fx-background-radius: 30;">
+         <children>
+            <Label layoutX="175.0" layoutY="33.0" prefHeight="45.0" prefWidth="80.0" text="Login">
+               <font>
+                  <Font name="System Bold Italic" size="30.0" />
+               </font>
+               <textFill>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.2046979865771811">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </textFill>
+            </Label>
+            <Label layoutX="81.0" layoutY="110.0" prefHeight="27.0" prefWidth="80.0" text="UserName" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <Label layoutX="81.0" layoutY="178.0" prefHeight="27.0" prefWidth="80.0" text="Password" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Label>
+            <PasswordField fx:id="txtPassword" layoutX="81.0" layoutY="205.0" prefHeight="25.0" prefWidth="267.0" />
+            <Line endX="100.0" layoutX="246.0" layoutY="351.0" startX="-163.0">
+               <stroke>
+                  <LinearGradient endX="1.0" endY="1.0">
+                     <stops>
+                        <Stop>
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.006711409395973154">
+                           <color>
+                              <Color />
+                           </color>
+                        </Stop>
+                        <Stop offset="0.28523489932885904">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                        <Stop offset="1.0">
+                           <color>
+                              <Color red="1.0" green="1.0" blue="1.0" />
+                           </color>
+                        </Stop>
+                     </stops>
+                  </LinearGradient>
+               </stroke>
+            </Line>
+            <Text fx:id="txtCreate" fill="WHITE" layoutX="145.0" layoutY="345.0" onMouseClicked="#txtCreateOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Create an Account">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Text>
+            <Text fx:id="txtForgot" fill="WHITE" layoutX="154.0" layoutY="411.0" onMouseClicked="#txtForgotOnAction" strokeType="OUTSIDE" strokeWidth="0.0" text="Forgot Password ? " wrappingWidth="136.1376953125">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Text>
+            <ImageView fx:id="imgEyeClose" fitHeight="19.0" fitWidth="21.0" layoutX="320.0" layoutY="208.0" onMouseClicked="#imgEyeCloseOnAction">
+               <image>
+                  <Image url="@assests/o2.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="imgEyeOpen" fitHeight="19.0" fitWidth="21.0" layoutX="319.0" layoutY="209.0" onMouseClicked="#imgEyeOpenOnAction">
+               <image>
+                  <Image url="@assests/o1.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="txtName" layoutX="80.0" layoutY="137.0" prefHeight="26.0" prefWidth="267.0" />
+            <TextField fx:id="txtShowPass" layoutX="81.0" layoutY="205.0" prefHeight="26.0" prefWidth="267.0" />
+            <Button fx:id="btnSign" layoutX="294.0" layoutY="266.0" mnemonicParsing="false" onAction="#btnSignOnAction" style="-fx-background-color: #ab47bc;" text="Sign In" textFill="WHITE">
+               <font>
+                  <Font name="System Bold" size="13.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
