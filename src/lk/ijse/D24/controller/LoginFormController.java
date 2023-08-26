@@ -39,7 +39,7 @@ public class LoginFormController implements Initializable {
     public void btnSignOnAction(ActionEvent event) throws IOException {
         if(userCheck()){
             Stage stage=(Stage) anchorPane.getScene().getWindow();
-            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+            stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/DashboardForm.fxml"))));
 
             new Alert(Alert.AlertType.CONFIRMATION, "Login Successfully").show();
         }

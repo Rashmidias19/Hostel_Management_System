@@ -18,6 +18,8 @@ import org.hibernate.query.Query;
 
 import javax.mail.MessagingException;
 import java.net.URL;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 import java.util.ResourceBundle;
 
@@ -76,29 +78,37 @@ public class UserCreateFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        setUserID();
+        try {
+            setUserID();
+        } catch (SQLException throwables) {
+            throwables.printStackTrace();
+        }
     }
 
-    private void setUserID() {
+    private void setUserID() throws SQLException {
         int userID=nextID();
         lblID.setText(String.valueOf(userID));
     }
 
-    private int nextID() {
-        Session session= SessionFactoryConfig.getInstance().getSession();
-        Transaction transaction= session.beginTransaction();
+    private int nextID() throws SQLException {
+        Session session = SessionFactoryConfig.getInstance().getSession();
+        Transaction transaction = session.beginTransaction();
 
-        Query query=session.createQuery("select id from User order by id desc");
+        Query query = session.createQuery("select id from User order by id desc");
 
-        int nextID=1;
+        int nextID = 1;
 
-        if(query.list().size()==0){
+        if (query.list().size() == 0) {
             return nextID;
-        }else{
-            int id= (int) query.list().get(0);
+        } else {
+            int id = 0;
+            for (int i = 0; i < query.list().size(); i++) {
+                id = (int) query.list().get(id);
+            }
             transaction.commit();
             session.close();
             return id;
         }
+
     }
 }
