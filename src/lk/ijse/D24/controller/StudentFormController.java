@@ -16,6 +16,7 @@ import javafx.stage.Stage;
 import lk.ijse.D24.bo.BOFactory;
 import lk.ijse.D24.bo.custom.StudentBO;
 import lk.ijse.D24.dto.StudentDTO;
+import lk.ijse.D24.entity.Student;
 import org.hibernate.Session;
 
 import java.io.IOException;
@@ -50,12 +51,11 @@ public class StudentFormController implements Initializable {
 
     public void btnDeleteOnAction(ActionEvent event) throws Exception {
         int id= tblStudent.getSelectionModel().getSelectedItem().getId();
-        StudentDTO studentDTO=studentBO.getStudent(id);
-        studentBO.deleteStudent(studentDTO);
+        Student student=studentBO.getStudent(id);
+        studentBO.deleteStudent(student);
 
         tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
         tblStudent.getSelectionModel().clearSelection();
-
 
     }
 

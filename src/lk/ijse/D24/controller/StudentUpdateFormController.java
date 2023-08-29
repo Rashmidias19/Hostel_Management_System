@@ -43,7 +43,7 @@ public class StudentUpdateFormController implements Initializable {
         int id= (int) cmbID.getValue();
 
         try{
-            StudentDTO studentDTO=studentBO.getStudent(id);
+            Student studentDTO=studentBO.getStudent(id);
             txtName.setText(studentDTO.getName());
             txtNIC.setText(studentDTO.getNic());
             txtAddress.setText(studentDTO.getAddress());

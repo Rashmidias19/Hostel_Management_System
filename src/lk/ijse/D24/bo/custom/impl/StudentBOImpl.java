@@ -4,11 +4,8 @@ import lk.ijse.D24.bo.custom.StudentBO;
 import lk.ijse.D24.config.SessionFactoryConfig;
 import lk.ijse.D24.dao.DAOFactory;
 import lk.ijse.D24.dao.custom.StudentDAO;
-import lk.ijse.D24.dao.custom.UserDAO;
 import lk.ijse.D24.dto.StudentDTO;
-import lk.ijse.D24.dto.UserDTO;
 import lk.ijse.D24.entity.Student;
-import lk.ijse.D24.entity.User;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
 
@@ -107,40 +104,32 @@ public class StudentBOImpl implements StudentBO {
     }
 
     @Override
-    public boolean deleteStudent(StudentDTO studentDTO) {
+    public boolean deleteStudent(Student student) {
         session=SessionFactoryConfig.getInstance ().getSession ();
-        Transaction transaction=session.beginTransaction ();
+        Transaction transaction= session.beginTransaction();
 
         try{
-            studentDAO.setSession (session);
-            studentDAO.delete (new Student (
-                    studentDTO.getId(),
-                    studentDTO.getName(),
-                    studentDTO.getNic(),
-                    studentDTO.getAddress(),
-                    studentDTO.getContact(),
-                    studentDTO.getDob(),
-                    studentDTO.getEmail(),
-                    studentDTO.getGender()
-            ));
-            transaction.commit ();
-            session.close ();
+            session.delete(student);
+            transaction.commit();
+            session.close();
             return true;
         }catch (Exception e){
-            transaction.rollback ();
+            transaction.rollback();
+            session.close();
+            e.printStackTrace();
+            return false;
         }
-        return false;
     }
 
     @Override
-    public StudentDTO getStudent(int id) throws Exception {
+    public Student getStudent(int id) throws Exception {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();
 
         studentDAO.setSession (session);
         Student st=studentDAO.getObject (id);
         session.close ();
-        return new StudentDTO (
+        return new Student (
                 st.getId(),
                 st.getName(),
                 st.getNic(),
