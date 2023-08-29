@@ -6,23 +6,28 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import lk.ijse.D24.bo.BOFactory;
 import lk.ijse.D24.bo.custom.StudentBO;
+import lk.ijse.D24.dto.StudentDTO;
 import org.hibernate.Session;
 
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
 public class StudentFormController implements Initializable {
     public AnchorPane anchorPane;
-    public TableView tblStudent;
+    public TableView<StudentDTO> tblStudent;
     public TableColumn colID;
     public TableColumn colName;
     public TableColumn colNIC;
@@ -35,13 +40,31 @@ public class StudentFormController implements Initializable {
     private Session session;
     private StudentBO studentBO = (StudentBO) BOFactory.getBO (BOFactory.BOTypes.STUDENT);
 
-    public void btnSaveOnAction(ActionEvent event) {
+    public void btnSaveOnAction(ActionEvent event) throws IOException {
+        Stage stage=new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/StudentSaveForm.fxml"))));
+        stage.setTitle("STUDENT");
+        stage.centerOnScreen();
+        stage.show();
     }
 
-    public void btnDeleteOnAction(ActionEvent event) {
+    public void btnDeleteOnAction(ActionEvent event) throws Exception {
+        int id= tblStudent.getSelectionModel().getSelectedItem().getId();
+        StudentDTO studentDTO=studentBO.getStudent(id);
+        studentBO.deleteStudent(studentDTO);
+
+        tblStudent.getItems().remove(tblStudent.getSelectionModel().getSelectedItem());
+        tblStudent.getSelectionModel().clearSelection();
+
+
     }
 
-    public void btnUpdateOnAction(ActionEvent event) {
+    public void btnUpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage=new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/StudentUpdateForm.fxml"))));
+        stage.setTitle("STUDENT");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void btnBackOnAction(ActionEvent event) throws IOException {
@@ -78,5 +101,17 @@ public class StudentFormController implements Initializable {
         colContact.setCellValueFactory (new PropertyValueFactory<> ("contact"));
         colGender.setCellValueFactory (new PropertyValueFactory<> ("gender"));
         colEmail.setCellValueFactory(new PropertyValueFactory<>("email"));
+    }
+
+    public void onMouseClicked(MouseEvent mouseEvent) {
+//        int index = tblStudent.getSelectionModel ().getSelectedIndex ();
+//        int stId = Integer.parseInt(colID.getCellData (index).toString ());//select Column value
+//
+//        try {
+//            StudentDTO dto = studentBO.getStudent (stId);
+//        } catch (Exception e) {
+//            System.out.println (e);
+//        }
+
     }
 }

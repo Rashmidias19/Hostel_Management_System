@@ -23,7 +23,7 @@
       </ImageView>
       <ScrollPane layoutX="220.0" layoutY="180.0" prefHeight="439.0" prefWidth="776.0">
          <content>
-            <TableView fx:id="tblStudent" prefHeight="440.0" prefWidth="850.0">
+            <TableView fx:id="tblStudent" onMouseClicked="#onMouseClicked" prefHeight="440.0" prefWidth="850.0">
               <columns>
                 <TableColumn fx:id="colID" prefWidth="79.0" text="Student_ID" />
                 <TableColumn fx:id="colName" prefWidth="116.0" text="Name" />

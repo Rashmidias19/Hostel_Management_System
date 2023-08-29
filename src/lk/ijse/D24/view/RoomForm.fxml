@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24.controller.StudentFormController">
+<AnchorPane fx:id="anchorPane" prefHeight="650.0" prefWidth="1050.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="lk.ijse.D24.controller.RoomFormController">
    <children>
       <ImageView fitHeight="650.0" fitWidth="1050.0">
          <image>
@@ -23,17 +23,13 @@
       </ImageView>
       <ScrollPane layoutX="220.0" layoutY="180.0" prefHeight="439.0" prefWidth="776.0">
          <content>
-            <TableView fx:id="tblStudent" onMouseClicked="#onMouseClicked" prefHeight="440.0" prefWidth="850.0">
-              <columns>
-                <TableColumn fx:id="colID" prefWidth="79.0" text="Student_ID" />
-                <TableColumn fx:id="colName" prefWidth="116.0" text="Name" />
-                  <TableColumn fx:id="colNIC" prefWidth="111.0" text="NIC" />
-                  <TableColumn fx:id="colEmail" prefWidth="111.0" text="Email" />
-                  <TableColumn fx:id="colAddress" prefWidth="166.0" text="Address" />
-                  <TableColumn fx:id="colContact" prefWidth="101.0" text="Contact" />
-                  <TableColumn fx:id="colDOB" prefWidth="90.0" text="DOB" />
-                  <TableColumn fx:id="colGender" prefWidth="90.0" text="Gender" />
-              </columns>
+            <TableView fx:id="tblRoom" onMouseClicked="#onMouseClicked" prefHeight="440.0" prefWidth="762.0">
+               <columns>
+                  <TableColumn fx:id="colID" prefWidth="145.0" text="Room_ID" />
+                  <TableColumn fx:id="colType" prefWidth="210.0" text="Type" />
+                  <TableColumn fx:id="colMoney" prefWidth="231.0" text="Key_Money" />
+                  <TableColumn fx:id="colQuantity" prefWidth="175.0" text="Quantity" />
+               </columns>
             </TableView>
          </content>
       </ScrollPane>

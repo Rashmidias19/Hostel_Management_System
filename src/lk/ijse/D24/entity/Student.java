@@ -3,6 +3,7 @@ package lk.ijse.D24.entity;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Blob;
 import java.sql.Date;
 import java.sql.Timestamp;
 

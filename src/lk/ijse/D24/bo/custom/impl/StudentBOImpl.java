@@ -97,11 +97,13 @@ public class StudentBOImpl implements StudentBO {
 
             transaction.commit();
             session.close();
+            return true;
         }catch (Exception e){
             e.printStackTrace();
             transaction.rollback();
+            return false;
         }
-        return false;
+
     }
 
     @Override

@@ -7,6 +7,8 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import lk.ijse.D24.bo.BOFactory;
+import lk.ijse.D24.bo.custom.StudentBO;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,6 +19,11 @@ public class DashboardFormController implements Initializable {
     public Label lblRooms;
     public Label lblReservations;
     public AnchorPane anchorPane;
+
+
+//    RoomBO roomBO = (RoomBO) BOFactory.getBO (BOFactory.BOTypes.ROOM);
+    StudentBO studentBO = (StudentBO) BOFactory.getBO (BOFactory.BOTypes.STUDENT);
+//    ReservationBO reservationBO = (ReservationBO) BOFactory.getBO (BOFactory.BOTypes.RESERVATION);
 
     public void lblStudentOnAction(MouseEvent mouseEvent) throws IOException {
         Stage stage = (Stage) anchorPane.getScene().getWindow();
@@ -47,6 +54,7 @@ public class DashboardFormController implements Initializable {
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        lblStudents.setText (String.valueOf (studentBO.loadAll ().size ()));
 
     }
 }
