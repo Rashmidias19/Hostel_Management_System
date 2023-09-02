@@ -1,5 +1,6 @@
 package lk.ijse.D24.config;
 
+import lk.ijse.D24.entity.Reservation;
 import lk.ijse.D24.entity.Rooms;
 import lk.ijse.D24.entity.Student;
 import lk.ijse.D24.entity.User;
@@ -25,6 +26,7 @@ public class SessionFactoryConfig {
         sessionFactory=new Configuration().configure().addAnnotatedClass(User.class)
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Rooms.class)
+                .addAnnotatedClass(Reservation.class)
                 .buildSessionFactory();
     }
 

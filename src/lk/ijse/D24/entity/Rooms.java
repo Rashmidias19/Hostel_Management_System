@@ -2,6 +2,7 @@ package lk.ijse.D24.entity;
 
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "rooms")
@@ -20,6 +21,10 @@ public class Rooms {
 
     @Column(name = "quantity")
     private int quantity;
+
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="rooms" )
+    List<Reservation> reservationList;
 
     public Rooms() {
     }

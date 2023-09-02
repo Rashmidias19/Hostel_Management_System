@@ -1,5 +1,6 @@
 package lk.ijse.D24.bo;
 
+import lk.ijse.D24.bo.custom.impl.ReservationBOImpl;
 import lk.ijse.D24.bo.custom.impl.RoomBOImpl;
 import lk.ijse.D24.bo.custom.impl.StudentBOImpl;
 import lk.ijse.D24.bo.custom.impl.UserBOImpl;
@@ -26,8 +27,8 @@ public class BOFactory {
                 return new StudentBOImpl();
             case ROOM:
                 return new RoomBOImpl();
-//            case RESERVATION:
-//                return new RevervationBOImpl ();
+            case RESERVATION:
+                return new ReservationBOImpl();
             case USER:
                 return new UserBOImpl();
             default:

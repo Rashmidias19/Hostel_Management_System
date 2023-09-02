@@ -6,6 +6,7 @@ import javax.persistence.*;
 import java.sql.Blob;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.List;
 
 @Entity
 @Table(name = "student")
@@ -40,6 +41,9 @@ public class Student {
     @CreationTimestamp
     @Column(name = "logged_date")
     private Timestamp loggedDateTime;
+
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy = "student")
+    private List<Reservation> reservationList;
 
     public Student() {
     }

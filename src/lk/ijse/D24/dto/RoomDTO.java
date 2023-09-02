@@ -1,11 +1,19 @@
 package lk.ijse.D24.dto;
 
+import lk.ijse.D24.entity.Reservation;
+
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.OneToMany;
+import java.util.List;
+
 public class RoomDTO {
 
     private int id;
     private String type;
     private double key_money;
     private int quantity;
+
 
     public RoomDTO() {
     }
