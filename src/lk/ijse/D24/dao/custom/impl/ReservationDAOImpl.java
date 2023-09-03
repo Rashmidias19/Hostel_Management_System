@@ -53,4 +53,12 @@ public class ReservationDAOImpl implements ReservationDAO {
     }
 
 
+    @Override
+    public List<Integer> resIds() {
+        String hql = "SELECT id from Reservation ";
+        Query<Integer> query=session.createQuery (hql);
+        List<Integer> results = query.list();
+        session.close();
+        return results;
+    }
 }

@@ -43,7 +43,11 @@ public class DashboardFormController implements Initializable {
     }
 
     public void lblReservationOnAction(MouseEvent mouseEvent) throws IOException {
-
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ReservationForm.fxml"))));
+        stage.setTitle("RESERVATION");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void lblPlanOnAction(MouseEvent mouseEvent) throws IOException {

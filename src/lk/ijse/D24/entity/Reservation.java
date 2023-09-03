@@ -3,6 +3,7 @@ package lk.ijse.D24.entity;
 import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 @Entity
@@ -14,16 +15,15 @@ public class Reservation {
     @Column(name = "reservation_id")
     private int id;
 
-    @CreationTimestamp
     @Column(name = "date_time")
-    private Timestamp dateTime;
+    private Date dateTime;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "room_type_ID")
     private Rooms room;
 
     @ManyToOne
-    @JoinColumn(name = "id")
+    @JoinColumn(name = "student_id")
     private Student student;
 
     @Column(name = "advance")
@@ -35,9 +35,9 @@ public class Reservation {
     public Reservation() {
     }
 
-    public Reservation(int id, Timestamp dateTime, Rooms room, Student student, double advance, String status) {
+    public Reservation(int id,Date date_time, Rooms room, Student student, double advance, String status) {
         this.id = id;
-        this.dateTime = dateTime;
+        this.dateTime=date_time;
         this.room = room;
         this.student = student;
         this.advance = advance;
@@ -52,11 +52,11 @@ public class Reservation {
         this.id = id;
     }
 
-    public Timestamp getDateTime() {
+    public Date getDateTime() {
         return dateTime;
     }
 
-    public void setDateTime(Timestamp dateTime) {
+    public void setDateTime(Date dateTime) {
         this.dateTime = dateTime;
     }
 

@@ -41,9 +41,9 @@ public class ReservationFormController implements Initializable {
     }
 
     public void btnSaveOnAction(ActionEvent event) throws IOException {
-        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        Stage stage=new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ReservationSaveForm.fxml"))));
-        stage.setTitle("DASHBOARD");
+        stage.setTitle("ROOMS");
         stage.centerOnScreen();
         stage.show();
     }

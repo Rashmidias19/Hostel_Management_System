@@ -52,6 +52,18 @@ public class ReservationBOImpl implements ReservationBO {
     }
 
     @Override
+    public List<Integer> getResIds() {
+        try{
+            session=SessionFactoryConfig.getInstance ().getSession ();
+            reservationDAO.setSession (session);
+            return reservationDAO.resIds();
+        }catch (Exception e){
+            session.close ();
+            return null;
+        }
+    }
+
+    @Override
     public StudentDTO getStudent(int id) {
         session=SessionFactoryConfig.getInstance ().getSession ();
         Transaction transaction=session.beginTransaction ();

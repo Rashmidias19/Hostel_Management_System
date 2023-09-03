@@ -3,12 +3,13 @@ package lk.ijse.D24.dto.tm;
 import lk.ijse.D24.dto.RoomDTO;
 import lk.ijse.D24.dto.StudentDTO;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class ReservationTM {
 
     private int id;
-    private Timestamp date_time;
+    private Date date_time;
     private int student_id;
     private String name;
     private int room_id;
@@ -19,7 +20,7 @@ public class ReservationTM {
     public ReservationTM() {
     }
 
-    public ReservationTM(int id, Timestamp date_time, int student_id, String name, int room_id, String type, double advance, String status) {
+    public ReservationTM(int id, Date date_time, int student_id, String name, int room_id, String type, double advance, String status) {
         this.id = id;
         this.date_time = date_time;
         this.student_id = student_id;
@@ -54,11 +55,11 @@ public class ReservationTM {
         this.id = id;
     }
 
-    public Timestamp getDate_time() {
+    public Date getDate_time() {
         return date_time;
     }
 
-    public void setDate_time(Timestamp date_time) {
+    public void setDate_time(Date date_time) {
         this.date_time = date_time;
     }
 

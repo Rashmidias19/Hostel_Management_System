@@ -12,6 +12,7 @@ public interface ReservationBO extends SuperBO {
 
     List<Integer> getStudentIds();
     List<Integer> getRoomIds();
+    List<Integer> getResIds();
     StudentDTO getStudent(int id);
     RoomDTO getRoom(int id);
     Reservation getRes(int resID);

@@ -23,7 +23,7 @@ public class Rooms {
     private int quantity;
 
 
-    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="rooms" )
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.EAGER,mappedBy ="room" )
     List<Reservation> reservationList;
 
     public Rooms() {
