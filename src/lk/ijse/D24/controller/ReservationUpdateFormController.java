@@ -11,8 +11,11 @@ import lk.ijse.D24.bo.custom.ReservationBO;
 import lk.ijse.D24.dto.ReservationDTO;
 import lk.ijse.D24.dto.RoomDTO;
 import lk.ijse.D24.dto.StudentDTO;
+import lk.ijse.D24.entity.Reservation;
 
 import java.net.URL;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.List;
 import java.util.ResourceBundle;
 
@@ -32,6 +35,47 @@ public class ReservationUpdateFormController implements Initializable {
 
 
     public void btnSaveOnAction(ActionEvent event) {
+        int stId = (int) cmbStudentID.getValue ();
+        int roomID = (int) cmbRoom.getValue ();
+        String status = cmbStatus.getValue ().toString ();
+        double advance= Double.parseDouble(txtAdvance.getText());
+        int resId = (int) cmbReservation.getValue();
+        StudentDTO studentDTO = getStudentDetails ();
+        RoomDTO roomDTO = getRoomDetails ();
+        Date dt= Date.valueOf(date.getValue());
+
+        try {
+            boolean isUpdate = reservationBO.updateReservation (
+                    new ReservationDTO (
+                            resId,
+                            dt,
+                            roomDTO,
+                            studentDTO,
+                            advance,
+                            status
+                    ));
+            new Alert(Alert.AlertType.CONFIRMATION, "Update Successfully").show();
+
+        } catch (Exception e) {
+            e.printStackTrace ();
+        }
+
+    }
+
+    private RoomDTO getRoomDetails() {
+        try {
+            int roomId = (int) cmbRoom.getValue ();
+            System.out.println ("This IS ROOM ID"+roomId);
+            return reservationBO.getRoom (roomId);
+        } catch (Exception e) {
+            System.out.println (e);
+        }
+        return null;
+    }
+
+    private StudentDTO getStudentDetails() {
+        int stId = (int) cmbStudentID.getValue ();
+        return reservationBO.getStudent (stId);
     }
 
     public void btnBackOnAction(ActionEvent event) {
@@ -57,13 +101,39 @@ public class ReservationUpdateFormController implements Initializable {
         int resID= (int) cmbReservation.getValue();
         StudentDTO dto=reservationBO.getStudent(resID);
         RoomDTO rDto=reservationBO.getRoom(resID);
+        Reservation dt=reservationBO.getRes(resID);
         cmbStudentID.setValue(dto.getId());
+        lblName.setText(dto.getName());
         cmbRoom.setValue(rDto.getId());
+        lblType.setText(rDto.getType());
+        txtAdvance.setText(String.valueOf(dt.getAdvance()));
+        cmbStatus.setValue(dt.getStatus());
+        date.setPromptText(String.valueOf(dt.getDateTime()));
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setResIDS();
+        loadStudentID();
+        loadRoomID();
+        loadStatus();
+    }
+
+    private void loadStatus() {
+        ObservableList<String> data = FXCollections.observableArrayList ("Paid", "Not Paid","Fully Paid");
+        cmbStatus.setItems (data);
+    }
+
+    private void loadRoomID() {
+        List<Integer> RoomIds = reservationBO.getRoomIds();
+        ObservableList rooms = FXCollections.observableArrayList (RoomIds);
+        cmbRoom.setItems (rooms);
+    }
+
+    private void loadStudentID() {
+        List<Integer> StIds = reservationBO.getStudentIds();
+        ObservableList students = FXCollections.observableArrayList (StIds);
+        cmbStudentID.setItems (students);
     }
 
     private void setResIDS() {

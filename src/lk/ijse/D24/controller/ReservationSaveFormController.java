@@ -50,6 +50,7 @@ public class ReservationSaveFormController implements Initializable {
                             status
                     ));
             if (isSaveReservation) {
+                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
                 RoomDTO room = getRoomDetail ();
 
                 System.out.println (room.getQuantity() - 1);

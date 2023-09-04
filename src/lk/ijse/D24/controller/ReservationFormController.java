@@ -43,7 +43,7 @@ public class ReservationFormController implements Initializable {
     public void btnSaveOnAction(ActionEvent event) throws IOException {
         Stage stage=new Stage();
         stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ReservationSaveForm.fxml"))));
-        stage.setTitle("ROOMS");
+        stage.setTitle("RESERVATION");
         stage.centerOnScreen();
         stage.show();
     }
@@ -57,7 +57,12 @@ public class ReservationFormController implements Initializable {
         tblReservation.getSelectionModel().clearSelection();
     }
 
-    public void btnUpdateOnAction(ActionEvent event) {
+    public void btnUpdateOnAction(ActionEvent event) throws IOException {
+        Stage stage=new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ReservationUpdateForm.fxml"))));
+        stage.setTitle("RESERVATION");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void btnBackOnAction(ActionEvent event) throws IOException {
