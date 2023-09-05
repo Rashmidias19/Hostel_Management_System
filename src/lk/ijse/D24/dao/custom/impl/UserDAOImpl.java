@@ -45,4 +45,12 @@ public class UserDAOImpl implements UserDAO {
     }
 
 
+    @Override
+    public List<Integer> userIds() {
+        String hql = "SELECT id from User ";
+        Query<Integer> query=session.createQuery (hql);
+        List<Integer> results = query.list();
+        session.close();
+        return results;
+    }
 }

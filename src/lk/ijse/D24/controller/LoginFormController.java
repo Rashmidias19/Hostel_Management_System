@@ -67,7 +67,12 @@ public class LoginFormController implements Initializable {
         stage.show();
     }
 
-    public void txtForgotOnAction(MouseEvent mouseEvent) {
+    public void txtForgotOnAction(MouseEvent mouseEvent) throws IOException {
+        Stage stage=new Stage();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ForgotPasswordForm.fxml"))));
+        stage.setTitle("D24 HOSTEL");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @Override
