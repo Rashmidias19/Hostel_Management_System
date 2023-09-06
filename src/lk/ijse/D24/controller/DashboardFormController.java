@@ -67,7 +67,12 @@ public class DashboardFormController implements Initializable {
         stage.show();
     }
 
-    public void lblLogoutOnAction(MouseEvent mouseEvent) {
+    public void lblLogoutOnAction(MouseEvent mouseEvent) throws IOException {
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/LoginForm.fxml"))));
+        stage.setTitle("Dashboard");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     @Override

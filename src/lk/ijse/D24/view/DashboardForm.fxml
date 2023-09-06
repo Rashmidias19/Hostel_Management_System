@@ -170,19 +170,19 @@
             <Font name="System Bold" size="20.0" />
          </font>
       </Label>
-      <Label fx:id="lblStudents" layoutX="398.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
+      <Label fx:id="lblStudents" layoutX="389.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="lblRooms" layoutX="638.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
+      <Label fx:id="lblRooms" layoutX="629.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
-      <Label fx:id="lblReservations" layoutX="880.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
+      <Label fx:id="lblReservations" layoutX="865.0" layoutY="314.0" prefHeight="62.0" prefWidth="59.0" textFill="WHITE">
          <font>
-            <Font name="System Bold" size="20.0" />
+            <Font name="System Bold" size="30.0" />
          </font>
       </Label>
    </children>
