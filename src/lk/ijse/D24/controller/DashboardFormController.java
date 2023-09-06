@@ -60,7 +60,11 @@ public class DashboardFormController implements Initializable {
     }
 
     public void lblSettingOnAction(MouseEvent mouseEvent) throws IOException {
-
+        Stage stage = (Stage) anchorPane.getScene().getWindow();
+        stage.setScene(new Scene(FXMLLoader.load(getClass().getResource("../view/ReportForm.fxml"))));
+        stage.setTitle("PLAN");
+        stage.centerOnScreen();
+        stage.show();
     }
 
     public void lblLogoutOnAction(MouseEvent mouseEvent) {
