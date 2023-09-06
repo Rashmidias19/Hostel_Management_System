@@ -7,11 +7,13 @@ import javafx.scene.control.Label;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 import lk.ijse.D24.bo.BOFactory;
 import lk.ijse.D24.bo.custom.ReservationBO;
 import lk.ijse.D24.bo.custom.RoomBO;
 import lk.ijse.D24.bo.custom.StudentBO;
 
+import java.awt.*;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
