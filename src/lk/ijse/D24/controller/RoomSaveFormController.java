@@ -34,7 +34,8 @@ public class RoomSaveFormController implements Initializable {
         String type= String.valueOf(cmbType.getValue());
         double money= Double.parseDouble(txtMoney.getText());
         int quantity= (int) cmbQuantity.getValue();
-        RoomDTO roomDTO = new RoomDTO (id,type,money,quantity);
+        int typeID= (int) cmbTypeID.getValue();
+        RoomDTO roomDTO = new RoomDTO (id,typeID,type,money,quantity);
 
         boolean isCheckValidate=checkValidation ();
         if(isCheckValidate){
@@ -70,6 +71,12 @@ public class RoomSaveFormController implements Initializable {
     public void initialize(URL url, ResourceBundle resourceBundle) {
         setType();
         setQuantity();
+        setTypeID();
+    }
+
+    private void setTypeID() {
+        ObservableList<Integer> data = FXCollections.observableArrayList (1,2,3,4);
+        cmbTypeID.setItems (data);
     }
 
     private void setQuantity() {

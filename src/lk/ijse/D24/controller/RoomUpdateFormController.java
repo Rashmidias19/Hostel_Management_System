@@ -35,7 +35,8 @@ public class RoomUpdateFormController implements Initializable {
         String type= String.valueOf(cmbType.getValue());
         double money= Double.parseDouble(txtMoney.getText());
         int quantity= (int) cmbQuantity.getValue();
-        RoomDTO roomDTO = new RoomDTO (id,type,money,quantity);
+        int typeID= (int) cmbTypeID.getValue();
+        RoomDTO roomDTO = new RoomDTO (id,typeID,type,money,quantity);
 
         boolean isUpdate=roomBO.updateRoom (roomDTO);
 
@@ -51,6 +52,7 @@ public class RoomUpdateFormController implements Initializable {
         cmbID.setPromptText(String.valueOf(0));
         cmbType.setValue(null);
         cmbQuantity.setValue(null);
+        cmbTypeID.setValue(null);
         txtMoney.clear();
     }
 
@@ -62,6 +64,12 @@ public class RoomUpdateFormController implements Initializable {
         setID();
         setQuantity();
         setType();
+        setTypeID();
+    }
+
+    private void setTypeID() {
+        ObservableList<Integer> data = FXCollections.observableArrayList (1,2,3,4);
+        cmbTypeID.setItems (data);
     }
 
     private void setType() {
