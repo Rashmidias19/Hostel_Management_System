@@ -16,14 +16,9 @@ public class SessionFactoryConfig {
 
     private SessionFactoryConfig(){
 
-//
-//      sessionFactory=new MetadataSources(new StandardServiceRegistryBuilder()
-//               .configure()
-//                .build()).addAnnotatedClass(Customer.class).getMetadataBuilder()
-//              .applyImplicitNamingStrategy(ImplicitNamingStrategyLegacyJpaImpl.INSTANCE)
-//              .build().buildSessionFactory();
 
-        sessionFactory=new Configuration().configure().addAnnotatedClass(User.class)
+        sessionFactory=new Configuration().mergeProperties(Utility.getProperties())
+                .addAnnotatedClass(User.class)
                 .addAnnotatedClass(Student.class)
                 .addAnnotatedClass(Rooms.class)
                 .addAnnotatedClass(Reservation.class)
