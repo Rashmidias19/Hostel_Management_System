@@ -93,5 +93,10 @@
       </Label>
       <ComboBox fx:id="cmbReservation" layoutX="79.0" layoutY="106.0" onAction="#cmbReservationOnAction" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
       <Line endX="164.0" layoutX="180.0" layoutY="131.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+      <Label fx:id="lblKey" layoutX="429.0" layoutY="450.0" prefHeight="36.0" prefWidth="119.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

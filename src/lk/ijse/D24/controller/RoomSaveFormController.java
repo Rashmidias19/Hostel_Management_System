@@ -24,6 +24,7 @@ public class RoomSaveFormController implements Initializable {
     public AnchorPane anchorPane;
     public ComboBox cmbType;
     public ComboBox cmbQuantity;
+    public ComboBox cmbTypeID;
 
     private Session session;
     private RoomBO roomBO = (RoomBO) BOFactory.getBO (BOFactory.BOTypes.ROOM);

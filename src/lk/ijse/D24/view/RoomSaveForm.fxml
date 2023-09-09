@@ -22,18 +22,18 @@
             <Font name="System Bold" size="24.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="111.0" prefHeight="27.0" prefWidth="58.0" text="Type :" textFill="WHITE">
+      <Label layoutX="79.0" layoutY="170.0" prefHeight="27.0" prefWidth="58.0" text="Type :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <Label layoutX="79.0" layoutY="213.0" prefHeight="27.0" prefWidth="174.0" text="Key - Money :" textFill="WHITE">
+      <Label layoutX="79.0" layoutY="264.0" prefHeight="27.0" prefWidth="174.0" text="Key - Money :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
-      <TextField fx:id="txtMoney" layoutX="79.0" layoutY="250.0" prefHeight="25.0" prefWidth="336.0" />
-      <Label layoutX="82.0" layoutY="325.0" prefHeight="27.0" prefWidth="104.0" text="Quantity :" textFill="WHITE">
+      <TextField fx:id="txtMoney" layoutX="79.0" layoutY="315.0" prefHeight="25.0" prefWidth="336.0" />
+      <Label layoutX="79.0" layoutY="356.0" prefHeight="27.0" prefWidth="104.0" text="Quantity :" textFill="WHITE">
          <font>
             <Font name="System Bold" size="15.0" />
          </font>
@@ -48,9 +48,16 @@
             <Font name="System Bold" size="13.0" />
          </font>
       </Button>
-      <ComboBox fx:id="cmbType" layoutX="79.0" layoutY="150.0" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
-      <Line endX="164.0" layoutX="179.0" layoutY="175.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
-      <ComboBox fx:id="cmbQuantity" layoutX="79.0" layoutY="369.0" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
-      <Line endX="164.0" layoutX="179.0" layoutY="394.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+      <ComboBox fx:id="cmbType" layoutX="79.0" layoutY="217.0" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
+      <Line endX="164.0" layoutX="179.0" layoutY="242.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+      <ComboBox fx:id="cmbQuantity" layoutX="79.0" layoutY="405.0" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
+      <Line endX="164.0" layoutX="179.0" layoutY="430.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
+      <Label layoutX="79.0" layoutY="84.0" prefHeight="27.0" prefWidth="83.0" text="Type-ID :" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="15.0" />
+         </font>
+      </Label>
+      <ComboBox fx:id="cmbTypeID" layoutX="79.0" layoutY="131.0" opacity="0.48" prefHeight="25.0" prefWidth="265.0" style="-fx-background-color: #9c27b0;" />
+      <Line endX="164.0" layoutX="179.0" layoutY="156.0" startX="-100.0" stroke="WHITE" strokeWidth="0.5" />
    </children>
 </AnchorPane>

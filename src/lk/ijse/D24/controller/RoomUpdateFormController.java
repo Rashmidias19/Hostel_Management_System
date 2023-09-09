@@ -26,6 +26,7 @@ public class RoomUpdateFormController implements Initializable {
     public ComboBox cmbType;
     public ComboBox cmbQuantity;
     public ComboBox cmbID;
+    public ComboBox cmbTypeID;
 
     private Session session;
     private RoomBO roomBO = (RoomBO) BOFactory.getBO (BOFactory.BOTypes.ROOM);

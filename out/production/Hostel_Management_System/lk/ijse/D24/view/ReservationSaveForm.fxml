@@ -86,5 +86,10 @@
             <Font name="System Bold" size="15.0" />
          </font>
       </Label>
+      <Label fx:id="lblKey" layoutX="429.0" layoutY="396.0" prefHeight="36.0" prefWidth="119.0" textFill="WHITE">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>
