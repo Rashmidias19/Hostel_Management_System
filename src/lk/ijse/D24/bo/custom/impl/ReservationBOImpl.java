@@ -101,6 +101,7 @@ public class ReservationBOImpl implements ReservationBO {
             session.close ();
             return new RoomDTO (
                     room.getId(),
+                    room.getType_id(),
                     room.getType(),
                     room.getKeyMoney(),
                     room.getQuantity()
@@ -127,6 +128,7 @@ public class ReservationBOImpl implements ReservationBO {
                     res.getDateTime(),
                     new Rooms (
                             res.getRoom ().getId(),
+                            res.getRoom().getType_id(),
                             res.getRoom ().getType(),
                             res.getRoom ().getKeyMoney(),
                             res.getRoom ().getQuantity()
@@ -162,6 +164,7 @@ public class ReservationBOImpl implements ReservationBO {
             roomDAO.setSession (session);
             roomDAO.update (new Rooms (
                     dto.getId(),
+                    dto.getType_id(),
                     dto.getType(),
                     dto.getKey_money(),
                     dto.getQuantity()
@@ -194,6 +197,7 @@ public class ReservationBOImpl implements ReservationBO {
                             dto.getDate_time(),
                             new Rooms (
                                     dto.getRooms().getId(),
+                                    dto.getRooms().getType_id(),
                                     dto.getRooms().getType (),
                                     dto.getRooms().getKey_money(),
                                     dto.getRooms().getQuantity()
@@ -235,6 +239,7 @@ public class ReservationBOImpl implements ReservationBO {
                             dto.getDate_time(),
                             new Rooms (
                                     dto.getRooms().getId(),
+                                    dto.getRooms().getType_id(),
                                     dto.getRooms().getType(),
                                     dto.getRooms().getKey_money(),
                                     dto.getRooms().getQuantity()
@@ -297,6 +302,7 @@ public class ReservationBOImpl implements ReservationBO {
                     res.getDateTime(),
                     new RoomDTO (
                             res.getRoom ().getId(),
+                            res.getRoom().getType_id(),
                             res.getRoom ().getType (),
                             res.getRoom ().getKeyMoney(),
                             res.getRoom ().getQuantity()

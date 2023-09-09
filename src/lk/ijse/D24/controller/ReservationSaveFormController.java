@@ -30,6 +30,7 @@ public class ReservationSaveFormController implements Initializable {
     public Button btnSave;
     public AnchorPane anchorPane;
     public DatePicker date;
+    public Label lblKey;
 
     private ReservationBO reservationBO = (ReservationBO) BOFactory.getBO (BOFactory.BOTypes.RESERVATION);
 
@@ -40,26 +41,32 @@ public class ReservationSaveFormController implements Initializable {
         String status = cmbStatus.getValue ().toString ();
         double advance= Double.parseDouble(txtAdvance.getText());
         Date dateTime= Date.valueOf(date.getValue());
-        boolean isSaveReservation = reservationBO.saveReservation (
-                    new ReservationDTO(
-                            id,
-                            dateTime,
-                            roomDTO,
-                            studentDTO,
-                            advance,
-                            status
-                    ));
-            if (isSaveReservation) {
-                new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
-                RoomDTO room = getRoomDetail ();
 
-                System.out.println (room.getQuantity() - 1);
-                room.setQuantity(room.getQuantity() - 1);
-                reservationBO.updateRoom (room);
-                // tblReservation.getItems ().clear ();
-                loadAllReservations ();
+        RoomDTO room = getRoomDetail();
+                if(room.getQuantity()>0){
+                    boolean isSaveReservation = reservationBO.saveReservation (
+                            new ReservationDTO(
+                                    id,
+                                    dateTime,
+                                    roomDTO,
+                                    studentDTO,
+                                    advance,
+                                    status
+                            ));
+                    if (isSaveReservation) {
+                        new Alert(Alert.AlertType.CONFIRMATION, "Saved Successfully").show();
+
+                        System.out.println(room.getQuantity() - 1);
+                        room.setQuantity(room.getQuantity() - 1);
+                        reservationBO.updateRoom(room);
+                        loadAllReservations();
+                    }
+                }else{
+                    new Alert(Alert.AlertType.ERROR, "No rooms available").show();
+
+                }
             }
-    }
+
 
     private void loadAllReservations() {
         try {
@@ -108,12 +115,19 @@ public class ReservationSaveFormController implements Initializable {
         int student_id = (int) cmbStudentID.getValue();
         StudentDTO dto = reservationBO.getStudent (student_id);
         lblName.setText (dto.getName());
+
     }
 
     public void cmbRoomOnAction(ActionEvent event) {
         int room_id = (int) cmbRoom.getValue();
         RoomDTO dto = reservationBO.getRoom(room_id);
-        lblType.setText (dto.getType());
+        if(dto.getQuantity()>0){
+            lblType.setText (dto.getType());
+            lblKey.setText(String.valueOf(dto.getKey_money()));
+        }else{
+            new Alert(Alert.AlertType.ERROR, "No rooms available from this type.Please select another one").show();
+        }
+
     }
 
     @Override

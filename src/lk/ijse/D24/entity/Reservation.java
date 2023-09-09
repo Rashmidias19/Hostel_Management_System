@@ -19,7 +19,7 @@ public class Reservation {
     private Date dateTime;
 
     @ManyToOne
-    @JoinColumn(name = "room_type_ID")
+    @JoinColumn(name = "room_ID")
     private Rooms room;
 
     @ManyToOne

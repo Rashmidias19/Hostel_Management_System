@@ -10,6 +10,7 @@ import java.util.List;
 public class RoomDTO {
 
     private int id;
+    private int type_id;
     private String type;
     private double key_money;
     private int quantity;
@@ -18,11 +19,20 @@ public class RoomDTO {
     public RoomDTO() {
     }
 
-    public RoomDTO(int id, String type, double key_money, int quantity) {
+    public RoomDTO(int id,int type_id, String type, double key_money, int quantity) {
         this.id = id;
+        this.type_id=type_id;
         this.type = type;
         this.key_money = key_money;
         this.quantity = quantity;
+    }
+
+    public int getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(int type_id) {
+        this.type_id = type_id;
     }
 
     public int getId() {

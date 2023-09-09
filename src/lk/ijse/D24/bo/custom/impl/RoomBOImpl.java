@@ -34,6 +34,7 @@ public class RoomBOImpl implements RoomBO {
             roomDTOList.add(
                     new RoomDTO(
                        r.getId(),
+                            r.getType_id(),
                             r.getType(),
                             r.getKeyMoney(),
                             r.getQuantity()
@@ -52,6 +53,7 @@ public class RoomBOImpl implements RoomBO {
             roomDAO.setSession(session);
             int id=roomDAO.save(
                     new Rooms(dto.getId(),
+                           dto.getType_id(),
                            dto.getType(),
                             dto.getKey_money(),
                             dto.getQuantity()
@@ -79,6 +81,7 @@ public class RoomBOImpl implements RoomBO {
             roomDAO.setSession(session);
             roomDAO.update(new Rooms(
                    dto.getId(),
+                    dto.getType_id(),
                     dto.getType(),
                     dto.getKey_money(),
                     dto.getQuantity()
@@ -123,6 +126,7 @@ public class RoomBOImpl implements RoomBO {
         session.close ();
         return new Rooms (
                 st.getId(),
+                st.getType_id(),
                st.getType(),
                 st.getKeyMoney(),
                 st.getQuantity()

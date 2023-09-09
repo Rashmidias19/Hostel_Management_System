@@ -10,8 +10,12 @@ public class Rooms {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "room_type_ID")
+    @Column(name = "room_ID")
     private int id;
+
+    @Column(name = "room_type_ID")
+    private int type_id;
+
 
     @Column(name = "type")
     private String type;
@@ -29,11 +33,20 @@ public class Rooms {
     public Rooms() {
     }
 
-    public Rooms(int id, String type, double keyMoney, int quantity) {
-        this.id = id;
+    public Rooms(int id,int type_id, String type, double keyMoney, int quantity) {
+        this.id=id;
+        this.type_id = type_id;
         this.type = type;
         this.keyMoney = keyMoney;
         this.quantity = quantity;
+    }
+
+    public int getType_id() {
+        return type_id;
+    }
+
+    public void setType_id(int type_id) {
+        this.type_id = type_id;
     }
 
     public int getId() {
@@ -72,9 +85,11 @@ public class Rooms {
     public String toString() {
         return "Rooms{" +
                 "id=" + id +
+                ", type_id=" + type_id +
                 ", type='" + type + '\'' +
                 ", keyMoney=" + keyMoney +
                 ", quantity=" + quantity +
+                ", reservationList=" + reservationList +
                 '}';
     }
 }
